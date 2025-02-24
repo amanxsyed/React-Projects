@@ -1,6 +1,4 @@
 ## Welcome to the **React Learning Resource** repository! 🚀
-
-## 📌 About
 This repository contains **React Notes** in PDF format to help you understand React concepts effectively and develop applications faster.
 
 ## 📖 React Notes
