@@ -4,7 +4,7 @@ This is a simple interactive React app built using **Vite + Tailwind CSS**.
 It allows users to dynamically change the background color of the screen using stylish color buttons.
 
 ## 🚀 Live Demo
-[View the Live Project](https://basic-html-portfolio-shah.netlify.app/)
+[View the Live Project](https://background-changer-abx.vercel.app/)
 
 ## 🛠 Features
 - Dynamic background color change with one click
