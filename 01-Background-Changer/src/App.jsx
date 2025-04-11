@@ -9,7 +9,7 @@ function App() {
   // The useState hook is used to create state variables in functional components
   // The useState function returns an array with two elements: the current state and a function to update it
 
-  const [color, setColor] = useState("gray");
+  const [color, setColor] = useState("brown");
 
   // Function to set the background color
   const colors = [
