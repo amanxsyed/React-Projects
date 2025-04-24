@@ -1,11 +1,15 @@
 /* eslint-disable no-unused-vars */
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useRef } from "react";
 
 function App() {
   const [length, setLength] = useState(8);
   const [numberAllowed, setNumberAllowed] = useState(false);
   const [charAllowed, setCharAllowed] = useState(false);
   const [password, setPassword] = useState("");
+
+
+  // useRef is used to store the previous value of the password
+  const PasswordRef = useRef(null);
 
   const PasswordGenerator = useCallback(() => {
     let pass = "";
@@ -21,9 +25,18 @@ function App() {
     setPassword(pass);
   }, [length, numberAllowed, charAllowed, setPassword]);
 
+  const copyToClipboard = useCallback(() => {
+    window.navigator.clipboard.writeText(password);
+    PasswordRef.current?.select();
+  }, [password]);
+
   useEffect(() => {
     PasswordGenerator();
   }, [length, numberAllowed, charAllowed, PasswordGenerator]);
+
+  
+
+
 
   return (
     <>
@@ -36,8 +49,9 @@ function App() {
             readOnly
             className="outline-none w-full py-1 px-3 bg-white"
             placeholder="Password"
+            ref={PasswordRef}
           />
-          <button className="outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0">
+          <button className="outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0 cursor-pointer" onClick={copyToClipboard}>
             Copy
           </button>
         </div>
