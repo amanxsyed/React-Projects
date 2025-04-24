@@ -2,21 +2,29 @@
 import React, { useCallback, useEffect, useState, useRef } from "react";
 
 function App() {
+  // useState is used to manage the state of the password generator
   const [length, setLength] = useState(8);
   const [numberAllowed, setNumberAllowed] = useState(false);
   const [charAllowed, setCharAllowed] = useState(false);
   const [password, setPassword] = useState("");
 
 
-  // useRef is used to store the previous value of the password
+  // This is useful for copying the password to the clipboard
   const PasswordRef = useRef(null);
 
+  // useCallback is used to memoize the PasswordGenerator function
+  // This function generates a random password based on the selected options  
+  // It uses the useCallback hook to avoid unnecessary re-renders
+  // It takes the length, numberAllowed, and charAllowed as dependencies
+  // It uses the useEffect hook to call the PasswordGenerator function whenever the dependencies change
   const PasswordGenerator = useCallback(() => {
     let pass = "";
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-    if (numberAllowed) str += "0123456789";
-    if (charAllowed) str += "!@#$%^&*(){}";
+    if (numberAllowed) str += "0123456789";   // Add numbers to the string
+    if (charAllowed) str += "!@#$%^&*(){}";   // Add special characters to the string
+
+    // Generate a random password of the specified length
     for (let i = 1; i <= length; i++) {
       let char = Math.floor(Math.random() * str.length + 1);
       pass += str.charAt(char);
@@ -26,16 +34,13 @@ function App() {
   }, [length, numberAllowed, charAllowed, setPassword]);
 
   const copyToClipboard = useCallback(() => {
-    window.navigator.clipboard.writeText(password);
-    PasswordRef.current?.select();
+    window.navigator.clipboard.writeText(password);   // Copy the password to the clipboard
+    PasswordRef.current?.select();                    // Select the password input field
   }, [password]);
 
   useEffect(() => {
     PasswordGenerator();
   }, [length, numberAllowed, charAllowed, PasswordGenerator]);
-
-  
-
 
 
   return (
