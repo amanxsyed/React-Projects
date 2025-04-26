@@ -20,7 +20,8 @@ Designed for clean UI, easy customization, and blazing-fast performance.
 - **CSS Variables** for custom theming
 
 ## File Structure
-/
+```
+/03-Brand-page
 ├── public/
 │   └── images/
 ├── src/
@@ -33,7 +34,7 @@ Designed for clean UI, easy customization, and blazing-fast performance.
 ├── README.md
 ├── package.json
 └── tailwind.config.js
-
+```
 
 ## 🏗 Installation & Usage
 1. **Clone the repository:**
