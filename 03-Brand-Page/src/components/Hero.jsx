@@ -1,8 +1,8 @@
 const Hero = () => {
     return (
-      <main className="flex ">
-        <div className="flex flex-col gap-6">
-          <h1 className="font-extrabold text-5xl">
+      <main className="flex items-center h-[calc(100vh-72px)] justify-center mx-auto my-0 max-w-[1280px] px-32">
+        <div className="flex flex-col gap-9">
+          <h1 className="font-extrabold text-8xl leading-[102px]">
             YOUR FEET DESERVE THE BEST
           </h1>
   
@@ -24,13 +24,13 @@ const Hero = () => {
           <div className="mt-6">
             <p className="text-sm mb-2">Also Available On</p>
             <div className="flex gap-4">
-              <img src="/images/daraz.svg" alt="daraz" className="w-24" />
-              <img src="/images/telemart.png" alt="telemart" className="w-24" />
+              <img src="/images/daraz.svg" alt="daraz" className="w-12 h-8" />
+              <img src="/images/telemart.png" alt="telemart" className="w-8 h-8" />
             </div>
           </div>
         </div>
   
-        <div className="flex justify-center items-center w-full h-full">
+        <div className="flex justify-center items-center w-[100%]">
           <img src="/images/hero-image.png" alt="Hero" className="w-full" />
         </div>
       </main>
